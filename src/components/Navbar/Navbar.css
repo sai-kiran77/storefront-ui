@@ -41,6 +41,47 @@
   background: var(--color-surface);
 }
 
+.navbar__cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.navbar__cart:hover {
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.navbar__cart--active {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.navbar__cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-bg);
+}
+
 .navbar__link--active,
 .navbar__link--active:hover {
   color: var(--color-primary);

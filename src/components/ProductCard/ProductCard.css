@@ -63,3 +63,24 @@
   font-weight: 700;
   color: var(--color-text);
 }
+
+.product-card__add {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.product-card__add:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.product-card__add:disabled {
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}

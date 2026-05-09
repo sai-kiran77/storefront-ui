@@ -1,4 +1,5 @@
 import type { Product } from '../../types/product'
+import { useCart } from '../../context/CartContext'
 import { formatPrice } from '../../utils/formatPrice'
 import './ProductCard.css'
 
@@ -7,7 +8,10 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { addToCart, items } = useCart()
+  const inCartQty = items.find((i) => i.id === product.id)?.quantity ?? 0
   const outOfStock = product.quantity === 0
+  const atStockLimit = !outOfStock && inCartQty >= product.quantity
 
   return (
     <article className="product-card" aria-label={product.name}>
@@ -30,6 +34,20 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p className="product-card__price">
           {formatPrice(product.price, product.currency)}
         </p>
+        <button
+          type="button"
+          className="product-card__add"
+          onClick={() => addToCart(product)}
+          disabled={outOfStock || atStockLimit}
+        >
+          {outOfStock
+            ? 'Out of stock'
+            : atStockLimit
+              ? `Max ${product.quantity} reached`
+              : inCartQty > 0
+                ? `Add another (${inCartQty} in cart)`
+                : 'Add to cart'}
+        </button>
       </div>
     </article>
   )
