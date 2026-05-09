@@ -132,7 +132,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     try {
-      // Persist only items; error is transient.
       window.localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({ items: state.items }),
