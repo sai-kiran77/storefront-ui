@@ -11,7 +11,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart, items } = useCart()
   const inCartQty = items.find((i) => i.id === product.id)?.quantity ?? 0
   const outOfStock = product.quantity === 0
-  const atStockLimit = !outOfStock && inCartQty >= product.quantity
 
   return (
     <article className="product-card" aria-label={product.name}>
@@ -38,15 +37,19 @@ export default function ProductCard({ product }: ProductCardProps) {
           type="button"
           className="product-card__add"
           onClick={() => addToCart(product)}
-          disabled={outOfStock || atStockLimit}
+          disabled={outOfStock}
         >
-          {outOfStock
-            ? 'Out of stock'
-            : atStockLimit
-              ? `Max ${product.quantity} reached`
+          <i
+            className={`fa-solid ${outOfStock ? 'fa-ban' : 'fa-cart-plus'}`}
+            aria-hidden="true"
+          />
+          <span>
+            {outOfStock
+              ? 'Out of stock'
               : inCartQty > 0
                 ? `Add another (${inCartQty} in cart)`
                 : 'Add to cart'}
+          </span>
         </button>
       </div>
     </article>

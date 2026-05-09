@@ -25,7 +25,7 @@ export default function SearchBar({ value, onSearch }: SearchBarProps) {
         id="search-input"
         type="text"
         className="search-bar__input"
-        placeholder="Search by name, colour or type"
+        placeholder="Search…"
         value={draft}
         onChange={(e) => setDraft(e.target.value)}
       />
@@ -33,7 +33,8 @@ export default function SearchBar({ value, onSearch }: SearchBarProps) {
         type="submit"
         className="search-button-container search-bar__button"
       >
-        Search
+        <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />
+        <span>Search</span>
       </button>
     </form>
   )

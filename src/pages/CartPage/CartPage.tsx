@@ -73,7 +73,7 @@ export default function CartPage() {
                   onClick={() => decrementQty(item.id)}
                   aria-label="Decrease quantity"
                 >
-                  −
+                  <i className="fa-solid fa-minus" aria-hidden="true" />
                 </button>
                 <span className="cart-item__qty-value" aria-live="polite">
                   {item.quantity}
@@ -86,7 +86,7 @@ export default function CartPage() {
                   aria-label="Increase quantity"
                   title={atLimit ? `Only ${item.stock} in stock` : undefined}
                 >
-                  +
+                  <i className="fa-solid fa-plus" aria-hidden="true" />
                 </button>
               </div>
 

@@ -41,6 +41,10 @@
   background: var(--color-surface);
 }
 
+.navbar__cart-icon {
+  font-size: 18px;
+}
+
 .navbar__cart {
   position: relative;
   display: inline-flex;

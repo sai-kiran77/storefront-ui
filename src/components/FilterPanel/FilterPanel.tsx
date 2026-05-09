@@ -76,9 +76,10 @@ export default function FilterPanel({
               <span className="filter-panel__active-count">{activeCount}</span>
             )}
           </h2>
-          <span className="filter-panel__chevron" aria-hidden="true">
-            ▾
-          </span>
+          <i
+            className="fa-solid fa-chevron-down filter-panel__chevron"
+            aria-hidden="true"
+          />
         </button>
         <button
           type="button"
