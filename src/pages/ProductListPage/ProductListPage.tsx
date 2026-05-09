@@ -1,18 +1,18 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useProducts } from '../../context/ProductsContext'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import SearchBar from '../../components/SearchBar/SearchBar'
-import { matchesSearch } from '../../utils/searchMatch'
+import FilterPanel from '../../components/FilterPanel/FilterPanel'
+import { useFilteredProducts } from '../../hooks/useFilteredProducts'
+import { EMPTY_FILTERS, type Filters } from '../../types/filters'
 import './ProductListPage.css'
 
 export default function ProductListPage() {
   const { products, loading, error, refetch } = useProducts()
   const [searchQuery, setSearchQuery] = useState('')
+  const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS)
 
-  const visibleProducts = useMemo(
-    () => products.filter((p) => matchesSearch(p, searchQuery)),
-    [products, searchQuery],
-  )
+  const visibleProducts = useFilteredProducts(products, searchQuery, filters)
 
   return (
     <main className="container page">
@@ -25,6 +25,14 @@ export default function ProductListPage() {
         <SearchBar value={searchQuery} onSearch={setSearchQuery} />
       </div>
 
+      <div className="product-list__layout">
+        <FilterPanel
+          products={products}
+          filters={filters}
+          onChange={setFilters}
+        />
+
+        <div className="product-list__results">
       {loading && (
         <div className="product-list__state" role="status" aria-live="polite">
           Loading products…
@@ -67,6 +75,8 @@ export default function ProductListPage() {
           ))}
         </div>
       )}
+        </div>
+      </div>
     </main>
   )
 }

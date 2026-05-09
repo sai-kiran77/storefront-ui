@@ -1,0 +1,100 @@
+.filter-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.filter-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.filter-panel__title {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.filter-panel__clear {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.filter-panel__clear:hover:not(:disabled) {
+  background: var(--color-primary-bg);
+}
+
+.filter-panel__clear:disabled {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.filter-panel__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.filter-panel__label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filter-panel__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.filter-panel__option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.filter-panel__option input {
+  cursor: pointer;
+}
+
+.filter-panel__price {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.filter-panel__price-input {
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.filter-panel__price-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-bg);
+}
+
+.filter-panel__price-sep {
+  color: var(--color-text-muted);
+}

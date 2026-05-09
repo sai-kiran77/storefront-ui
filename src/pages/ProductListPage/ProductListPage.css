@@ -13,10 +13,27 @@
   margin-bottom: var(--space-6);
 }
 
+.product-list__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.product-list__results {
+  min-width: 0;
+}
+
 .product-list__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .product-list__layout {
+    grid-template-columns: 240px 1fr;
+  }
 }
 
 .product-list__state {
