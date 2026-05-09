@@ -6,6 +6,10 @@
 .product-list__subtitle {
   color: var(--color-text-muted);
   font-size: var(--fs-sm);
+  margin-bottom: var(--space-4);
+}
+
+.product-list__toolbar {
   margin-bottom: var(--space-6);
 }
 
